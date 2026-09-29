@@ -43,21 +43,21 @@ ps aux | grep nexus
 
 **My new Blob Store:**
 
-![My new blob store.](Exercise-2-1-The-New-Blob-Store.jpg)
+![The new blob store.](Exercise-2-1-The-New-Blob-Store.jpg)
 
 **My new hosted NPM repository:**
 
-![My new hosted NPM repo.](Exercise-2-2-The-New-NPM-Hosted-Repo.jpg)
+![The new hosted NPM repo.](Exercise-2-2-The-New-NPM-Hosted-Repo.jpg)
 
 ## Exercise 3
 
 **The new Role:**
 
-![My new hosted NPM repo.](Exercise-3-1-The-New-Role.jpg)
+![The new role.](Exercise-3-1-The-New-Role.jpg)
 
 **The new User:**
 
-![My new hosted NPM repo.](Exercise-3-2-The-New-User.jpg)
+![The new user.](Exercise-3-2-The-New-User.jpg)
 
 ## Exercise 4
 
@@ -82,3 +82,9 @@ npm publish --registry=http://161.35.197.245:8081/repository/NPM-Repo-1/ ./bootc
 **The result of the successful artifact upload.**
 
 ![The result of the successful artifact upload.](Exercise-4-2-The-Uploaded-Artifact.jpg)
+
+## Exercise 5
+
+**The new hosted Maven repository:**
+
+![The new Maven hosted repository.](Exercise-5-1-The-New-Maven-Hosted-Repo.jpg)
