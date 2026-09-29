@@ -2,8 +2,11 @@
 
 ## Exercise 1
 
-> After I created a new Droplet on DigitalOcean, this is how I installed Nexus onto that.
-> Check Exercise-1-The-New-Droplet.jpg image.
+**My new Doplet on DigitalOcean:**
+
+![My new Droplet.](Exercise-1-The-New-Droplet.jpg)
+
+**This is how I installed Nexus on my Droplet:**
 
 ```bash
 # Login with SSH.
@@ -38,15 +41,24 @@ ps aux | grep nexus
 
 ## Exercise 4
 
+**On Nexus/Security/Realms page I had to add "npm Bearer Token Realm" to the Active Realms.**
+
+![I activated the "npm Bearer Token Realm".](Exercise-4-1-Activated-Realm.jpg)
+
+**Steps of this exercise:**
+
 ```bash
 # Navigate to the right folder.
 cd Repositories/TWN-DevOps-Bootcamp-Exercises-05-Cloud-IaaS-Basics/app
 
 npm pack
 
-# On Nexus/Security/Realms page I had to add "npm Bearer Token Realm" to the Active Realms.
 # And I had to use --auth-type option for login and enter my credentials.
 npm login --auth-type=legacy --registry=http://161.35.197.245:8081/repository/NPM-Repo-1/
 
 npm publish --registry=http://161.35.197.245:8081/repository/NPM-Repo-1/ ./bootcamp-node-project-1.0.0.tgz
 ```
+
+**The result of the successful artifact upload.**
+
+![The result of the successful artifact upload.](Exercise-4-2-The-Uploaded-Artifact.jpg)
