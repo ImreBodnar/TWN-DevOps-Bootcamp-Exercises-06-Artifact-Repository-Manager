@@ -39,6 +39,26 @@ su - nexus
 ps aux | grep nexus
 ```
 
+## Exercise 2
+
+**My new Blob Store:**
+
+![My new blob store.](Exercise-2-1-The-New-Blob-Store.jpg)
+
+**My new hosted NPM repository:**
+
+![My new hosted NPM repo.](Exercise-2-2-The-New-NPM-Hosted-Repo.jpg)
+
+## Exercise 3
+
+**The new Role:**
+
+![My new hosted NPM repo.](Exercise-3-1-The-New-Role.jpg)
+
+**The new User:**
+
+![My new hosted NPM repo.](Exercise-3-2-The-New-User.jpg)
+
 ## Exercise 4
 
 **On Nexus/Security/Realms page I had to add "npm Bearer Token Realm" to the Active Realms.**
