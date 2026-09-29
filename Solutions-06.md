@@ -35,3 +35,18 @@ su - nexus
 
 ps aux | grep nexus
 ```
+
+## Exercise 4
+
+```bash
+# Navigate to the right folder.
+cd Repositories/TWN-DevOps-Bootcamp-Exercises-05-Cloud-IaaS-Basics/app
+
+npm pack
+
+# On Nexus/Security/Realms page I had to add "npm Bearer Token Realm" to the Active Realms.
+# And I had to use --auth-type option for login and enter my credentials.
+npm login --auth-type=legacy --registry=http://161.35.197.245:8081/repository/NPM-Repo-1/
+
+npm publish --registry=http://161.35.197.245:8081/repository/NPM-Repo-1/ ./bootcamp-node-project-1.0.0.tgz
+```
