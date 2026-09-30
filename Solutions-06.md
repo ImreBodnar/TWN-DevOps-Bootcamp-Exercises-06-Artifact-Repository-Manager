@@ -51,13 +51,13 @@ ps aux | grep nexus
 
 ## Exercise 3
 
-**The new Role:**
+**The new NPM Role:**
 
-![The new role.](Exercise-3-1-The-New-Role.jpg)
+![The new npm role.](Exercise-3-1-The-New-NPM-Role.jpg)
 
-**The new User:**
+**The new NPM User:**
 
-![The new user.](Exercise-3-2-The-New-User.jpg)
+![The new npm user.](Exercise-3-2-The-New-NPM-User.jpg)
 
 ## Exercise 4
 
