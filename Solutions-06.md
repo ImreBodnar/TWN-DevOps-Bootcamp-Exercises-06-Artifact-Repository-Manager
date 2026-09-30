@@ -88,3 +88,13 @@ npm publish --registry=http://161.35.197.245:8081/repository/NPM-Repo-1/ ./bootc
 **The new hosted Maven repository:**
 
 ![The new Maven hosted repository.](Exercise-5-1-The-New-Maven-Hosted-Repo.jpg)
+
+## Exercise 6
+
+**The new Maven Role:**
+
+![The new maven role.](Exercise-6-1-The-New-Maven-Role.jpg)
+
+**The new Maven User:**
+
+![The new maven user.](Exercise-6-2-The-New-Maven-User.jpg)
