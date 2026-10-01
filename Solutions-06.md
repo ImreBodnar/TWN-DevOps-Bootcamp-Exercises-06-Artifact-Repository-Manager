@@ -98,3 +98,86 @@ npm publish --registry=http://161.35.197.245:8081/repository/NPM-Repo-1/ ./bootc
 **The new Maven User:**
 
 ![The new maven user.](Exercise-6-2-The-New-Maven-User.jpg)
+
+## Exercise 7
+
+**I modified build.gradle to configure the app to use my Nexus server:**
+
+```java
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.5'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group 'com.example'
+version '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        create("maven",MavenPublication) {
+            artifact("build/libs/my-app-$version"+".jar") {
+              extension 'jar'
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'nexus'
+            url = "http://161.35.197.245:8081/repository/Maven-Repo-1/"
+            allowInsecureProtocol = true
+            credentials {
+                username project.repoUserName
+                password project.repoPassword
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+    maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'net.logstash.logback:logstash-logback-encoder:9.0'
+    implementation 'javax.annotation:javax.annotation-api:1.3.2'
+
+    testImplementation 'junit:junit:4.13.2'
+}
+```
+
+**I added gradle.properties for storing my Nexus credentials:**
+
+```java
+repoUserName = supersecretusername
+repoPassword = supersecretpassword
+```
+
+**I also modified settings.gradle's last line to alter the projectname:**
+
+```java
+rootProject.name = 'my-app'
+```
+
+**At the end I built and published my artifacts:**
+
+```bash
+./gradlew clean build
+./gradlew publish
+```
+
+**The result of the successful upload into the Maven artifact repository:**
+
+![The result of the successful upload into the maven artifact repository.](Exercise-7-1-The-Result-of-Succeccful-Upload-into-Maven-Artifact.jpg)
