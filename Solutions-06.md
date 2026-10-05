@@ -181,3 +181,41 @@ rootProject.name = 'my-app'
 **The result of the successful upload into the Maven artifact repository:**
 
 ![The result of the successful upload into the maven artifact repository.](Exercise-7-1-The-Result-of-Succeccful-Upload-into-Maven-Artifact.jpg)
+
+## Exercise 8
+
+**I created a new user who has access to both repositories:**
+
+![The new user who has access to both repositories.](Exercise-8-1-The-New-User.jpg)
+
+**After that, I logged in to my Jenkins server and fetch the Nexus API:**
+
+```bash
+ssh -i ~/.ssh/digital_ocean_key root@167.172.184.106
+
+curl -u super_user:q1w2e3r4 -X GET 'http://161.35.197.245:8081/service/rest/v1/components?repository=NPM-Repo-1'
+```
+
+**Fetching the Nexus API:**
+
+![Fetching the nexus api.](Exercise-8-2-Fetching-The-Nexus-API.jpg)
+
+**After that, I executed some steps to download and run the app:**
+
+```bash
+cd /opt
+
+wget http://161.35.197.245:8081/repository/NPM-Repo-1/bootcamp-node-project/-/bootcamp-node-project-1.0.0.tgz
+mkdir my-node-app
+tar -xzvf bootcamp-node-project-1.0.0.tgz -C ./my-node-app
+
+apt install npm
+
+cd ./my-node-app/package/
+npm install
+node server.js &
+
+ps aux | grep node
+```
+
+![The result of running the app.](Exercise-8-3-The-Result-of-Running-the-App.jpg)
