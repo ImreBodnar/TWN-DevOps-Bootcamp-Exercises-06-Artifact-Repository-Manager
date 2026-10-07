@@ -10,7 +10,7 @@
 
 ```bash
 # Login with SSH.
-ssh -i ~/.ssh/id_ed25519 root@161.35.197.245
+ssh -i ~/.ssh/id_ed25519 root@NEXUS_ADDRESS
 
 # Install Java.
 apt update
@@ -74,9 +74,9 @@ cd Repositories/TWN-DevOps-Bootcamp-Exercises-05-Cloud-IaaS-Basics/app
 npm pack
 
 # And I had to use --auth-type option for login and enter my credentials.
-npm login --auth-type=legacy --registry=http://161.35.197.245:8081/repository/NPM-Repo-1/
+npm login --auth-type=legacy --registry=http://NEXUS_ADDRESS:8081/repository/NPM-Repo-1/
 
-npm publish --registry=http://161.35.197.245:8081/repository/NPM-Repo-1/ ./bootcamp-node-project-1.0.0.tgz
+npm publish --registry=http://NEXUS_ADDRESS:8081/repository/NPM-Repo-1/ ./bootcamp-node-project-1.0.0.tgz
 ```
 
 **The result of the successful artifact upload.**
@@ -133,7 +133,7 @@ publishing {
     repositories {
         maven {
             name = 'nexus'
-            url = "http://161.35.197.245:8081/repository/Maven-Repo-1/"
+            url = "http://NEXUS_ADDRESS:8081/repository/Maven-Repo-1/"
             allowInsecureProtocol = true
             credentials {
                 username project.repoUserName
@@ -191,9 +191,9 @@ rootProject.name = 'my-app'
 **After that, I logged in to my Jenkins server and fetch the Nexus API:**
 
 ```bash
-ssh -i ~/.ssh/digital_ocean_key root@167.172.184.106
+ssh -i ~/.ssh/digital_ocean_key root@JENKINS_ADDRESS
 
-curl -u super_user:q1w2e3r4 -X GET 'http://161.35.197.245:8081/service/rest/v1/components?repository=NPM-Repo-1'
+curl -u USER_NAME:PASSWORD -X GET 'http://NEXUS_ADDRESS:8081/service/rest/v1/components?repository=NPM-Repo-1'
 ```
 
 **Fetching the Nexus API:**
@@ -205,7 +205,7 @@ curl -u super_user:q1w2e3r4 -X GET 'http://161.35.197.245:8081/service/rest/v1/c
 ```bash
 cd /opt
 
-wget http://161.35.197.245:8081/repository/NPM-Repo-1/bootcamp-node-project/-/bootcamp-node-project-1.0.0.tgz
+wget http://NEXUS_ADDRESS:8081/repository/NPM-Repo-1/bootcamp-node-project/-/bootcamp-node-project-1.0.0.tgz
 mkdir my-node-app
 tar -xzvf bootcamp-node-project-1.0.0.tgz -C ./my-node-app
 
