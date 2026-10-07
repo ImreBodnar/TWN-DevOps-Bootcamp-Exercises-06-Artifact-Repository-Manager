@@ -219,3 +219,43 @@ ps aux | grep node
 ```
 
 ![The result of running the app.](Exercise-8-3-The-Result-of-Running-the-App.jpg)
+
+## Exercise 9
+
+**At first I created a script to automatize fetching, downloading and running the latest version of that nodejs app.**
+**Contents of Nexus-API-Script.sh:**
+
+```bash
+#!/bin/bash
+
+# Extract the download URL.
+curl -u USER_NAME:PASSWORD -X GET 'http://NEXUS_ADDRESS:8081/service/rest/v1/components?repository=NPM-Repo-1' | jq -r '.items[0].assets[0].downloadUrl' > artifacturl.txt
+artifactUrl = $(cat artifacturl.txt)
+
+echo "Downloading artifact from: $artifactUrl"
+
+# Download and unzip the artifact.
+wget "$artifactUrl" -O myapp.tgz
+tar -xzvf myapp.tgz
+
+# Install dependencies and run.
+cd package
+npm install
+node server.js
+```
+
+**I used these commands to copy my script to my Droplet, SSH in and give it execute right:**
+
+```bash
+scp -i ~/.ssh/digital_ocean_key Nexus-API-Script.sh root@DROPLET_ADDRESS:/opt
+
+ssh -i ~/.ssh/digital_ocean_key root@DROPLET_ADDRESS
+
+chmod +x Nexus-API-Script.sh
+
+./Nexus-API-Script.sh
+```
+
+**The result of running the script on my Droplet:**
+
+![The result of running the script.](Exercise-9-1-The-Result-of-Running-the-Script.jpg)
